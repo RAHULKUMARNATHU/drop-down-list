@@ -4,7 +4,9 @@ function Dropdown({ selected, setSelected }) {
   const [isActive, setisActive] = useState(false);
   const options = ["React", "Node", "Html", "Css"];
   return (
+    <div className="main-container">
     <div className="dropdown">
+      <label>Choose Course to Learn</label>
       <div className="dropdown-btn" onClick={(e) => setisActive(!isActive)}>
         {selected}
         <span className="fas fa-caret-down"></span>
@@ -24,6 +26,7 @@ function Dropdown({ selected, setSelected }) {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 }
