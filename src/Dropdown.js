@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Dropdown() {
+function Dropdown({ selected, setSelected }) {
+  const [isActive, setisActive] = useState(false);
+  const options = ["React", "Node", "Html", "Css"];
   return (
     <div className="dropdown">
-      <div className="dropdown-btn"> Select One
-      <span className="fas fa-caret-down"></span></div>
-      <div className="dropdown-content">
-        <div className="dropdown-item">React</div>
-        <div className="dropdown-item">Node</div>
-        <div className="dropdown-item">Angular</div>
+      <div className="dropdown-btn" onClick={(e) => setisActive(!isActive)}>
+        {selected}
+        <span className="fas fa-caret-down"></span>
       </div>
+      {isActive && (
+        <div className="dropdown-content">
+          {options.map((option) => (
+            <div
+              onClick={(e) => {
+                setSelected(option);
+                setisActive(false);
+              }}
+              className="dropdown-item"
+            >
+              {option}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

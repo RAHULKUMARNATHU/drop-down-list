@@ -16,6 +16,7 @@ body{
   width: 400px;
   margin: 100px auto;
   position: relative;
+  user-select: none;
 
 }
 .dropdown .dropdown-btn{
